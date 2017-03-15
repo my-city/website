@@ -1,3 +1,30 @@
-<h1>
-  {{title}}
-</h1>
+﻿<md-toolbar color="primary">
+  My City
+</md-toolbar>
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    Jolly good!
+  </md-sidenav>
+
+  <div class="example-sidenav-content">
+    <button md-button (click)="sidenav.open()">
+      Open sidenav
+    </button>
+  </div>
+
+</md-sidenav-container>
+
+<div style="padding: 7px">
+  <button md-button>Basic Button</button>
+  <button md-raised-button>Raised Button</button>
+  <md-slide-toggle>Slide Toggle</md-slide-toggle>
+
+  <!-- Optional Version Output -->
+  <hr>
+  <p *ngIf="version | async" style="color: #333">
+    Using Angular Material
+    (SHA {{ (version | async)?.commit.message.split(" ")[0] }}) from
+    {{ (version | async)?.commit.author.date | date: 'short' }}
+  </p>
+</div>
