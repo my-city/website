@@ -13,7 +13,7 @@ import { CitiesService } from '../../services/cities.service';
 
 export class CityComponent implements OnInit {
     public city: City;
-    public test = "assdfsdf"
+    
     constructor(
         private citiesService: CitiesService,
         private route: ActivatedRoute,

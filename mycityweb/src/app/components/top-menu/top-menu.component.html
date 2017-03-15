@@ -1,6 +1,1 @@
-﻿<button md-button *ngFor="let menu of menus">{{text}}</button>
-
-<md-menu #appMenu="mdMenu" *ngFor="let menu of menus">
-  <button md-button>{{text}} sdf sd</button>    
-</md-menu>
-
+﻿<button md-button *ngFor="let menu of menus" (click)="gotoDetail(menu)">{{menu.text}}</button>
