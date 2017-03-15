@@ -13,7 +13,8 @@ export class CityListComponent {
     constructor(private citiesService: CitiesService, private router: Router) { }  
     
     public gotoDetail(city) {
-        let link = ['/area', city.title];
+        // todo: should use title to be displayed in the browser
+        let link = ['/area', city.id];
         this.router.navigate(link);
     }
 

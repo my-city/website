@@ -33,7 +33,7 @@ import { CitiesService } from './services/cities.service';
       AppRoutingModule
   ],
   providers: [
-      CitiesService,
+      CitiesService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,12 @@
 ﻿<md-toolbar color="primary">
-  My City - Test
-  <top-menu></top-menu>
+    My City&nbsp;
+  <div *ngIf="city">
+    -&nbsp;{{city.title}}
+    <top-menu></top-menu>
+  </div>
 </md-toolbar>
 
+<div *ngIf="city">
+
+</div>
+  
