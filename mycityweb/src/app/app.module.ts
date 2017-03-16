@@ -14,7 +14,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CityListComponent } from './components/city/city-list.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { CityComponent } from './components/city/city.component';
+
 import { TrailListComponent } from './components/trail/trail-list.component';
+import { NewTrailComponent } from './components/trail/new-trail.component';
+import { TrailDetailComponent } from './components/trail/trail-detail.component';
+
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FooterComponent } from './components/layout/footer.component';
 import { HeaderComponent } from './components/layout/header.component';
@@ -30,6 +34,8 @@ import { TrailsService } from './services/trails.service';
       CityListComponent,
       CityComponent,
       TrailListComponent,
+      TrailDetailComponent,
+      NewTrailComponent,
       SignInComponent,
       HeaderComponent,
       FooterComponent
