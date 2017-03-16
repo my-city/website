@@ -1,4 +1,4 @@
-﻿<div class="">
+﻿<div layout="column">
 
   <md-grid-list cols="6" rowHeight="40px">
     <md-grid-tile>
@@ -39,8 +39,8 @@
   </md-grid-list>
 
   <md-grid-list cols="6" *ngFor="let trail of trails" rowHeight="40px">
-    <md-grid-tile>
-      {{trail.name}}
+    <md-grid-tile style="text-align:left">
+      <a href="/#/{{trail.id}}">{{trail.name}}</a>
     </md-grid-tile>
     <md-grid-tile>
       <md-icon>favorite</md-icon>
