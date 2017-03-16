@@ -2,22 +2,7 @@
   <img  src="./assets/mycity.png" style="height:60px"/> &nbsp;
   My City
 
-  <div *ngIf="user.google">
-    Hello, {{user.google.displayName}}
-    <button md-button (click)="logout()">
-      Logout
-    </button>
-    <img src="{{user.google.photoURL}}" style="height:60px;"/>
-
-  </div>
-
-  <div *ngIf="!user.google">
-    <button  md-button (click)="login()">
-      Login
-    </button>
-  </div>
-
-
+  <sign-in></sign-in>
 
 
 </md-toolbar>

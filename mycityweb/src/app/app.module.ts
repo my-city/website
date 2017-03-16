@@ -15,6 +15,7 @@ import { CityListComponent } from './components/city/city-list.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { CityComponent } from './components/city/city.component';
 import { TrailListComponent } from './components/trail/trail-list.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
 import { TrailsService } from './services/trails.service';
@@ -26,7 +27,8 @@ import { TrailsService } from './services/trails.service';
       DashboardComponent,
       CityListComponent,
       CityComponent,
-      TrailListComponent
+      TrailListComponent,
+      SignInComponent
   ],
   imports: [
       BrowserModule,
