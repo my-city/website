@@ -6,13 +6,14 @@ import { MaterialModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+//import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryDataService } from './in-memory-data.service';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CityListComponent } from './components/city/city-list.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { CityComponent } from './components/city/city.component';
+import { TrailListComponent } from './components/trail/trail-list.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
 
@@ -23,13 +24,14 @@ import { CitiesService } from './services/cities.service';
       DashboardComponent,
       CityListComponent,
       CityComponent,
+      TrailListComponent
   ],
   imports: [
       BrowserModule,
       FormsModule,
       HttpModule,
       MaterialModule,
-      InMemoryWebApiModule.forRoot(InMemoryDataService),
+      //InMemoryWebApiModule.forRoot(InMemoryDataService),
       AppRoutingModule
   ],
   providers: [

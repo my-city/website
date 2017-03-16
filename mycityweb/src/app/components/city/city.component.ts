@@ -23,7 +23,7 @@ export class CityComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params
-            .switchMap((params: Params) => this.citiesService.getCity(+params['id']))
+            .switchMap((params: Params) => this.citiesService.getCity(params['id']))
             .subscribe(city => this.city = city);
     }
 

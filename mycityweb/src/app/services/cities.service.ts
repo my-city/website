@@ -9,19 +9,19 @@ import { City } from '../models/city';
 export class CitiesService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private citiesUrl = 'api/cities';  // URL to web api
+  private citiesUrl = 'https://mycityservice.azurewebsites.net/cities';  // URL to web api
 
   constructor(private http: Http) { }
 
   getCities(): Promise<City[]> {
       return this.http.get(this.citiesUrl)
                .toPromise()
-          .then(response => response.json().data as City[])
+          .then(response => response.json() as City[])
                .catch(this.handleError);
   }
 
 
-  getCity(id: number): Promise<City> {
+  getCity(id: string): Promise<City> {
     const url = `${this.citiesUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
