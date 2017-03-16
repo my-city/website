@@ -2,3 +2,8 @@
   <button md-button *ngFor="let menu of menus" (click)="gotoDetail(menu)">{{menu.text}}</button>
 </md-toolbar>
 
+<style>
+  .mat-toolbar.mat-accent {
+    background-color: #7986CB !important;
+  }
+</style>
