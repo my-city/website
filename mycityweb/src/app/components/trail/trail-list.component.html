@@ -1,9 +1,60 @@
-﻿<md-list>
-  <h3 md-subheader>Trails</h3>
-  <md-list-item *ngFor="let trail of trails">
-    <md-icon md-list-avatar>folder</md-icon>
-    <h4 md-line>{{trail.name}}</h4>
-    <p md-line> {{trail.name}} </p>
-  </md-list-item>
-  <md-divider></md-divider>
-</md-list>
+﻿<md-grid-list cols="6" rowHeight="40px">
+  <md-grid-tile>
+    <md-grid-tile-header>
+      <md-icon>home</md-icon>
+      Name
+    </md-grid-tile-header>
+  </md-grid-tile>
+  <md-grid-tile>
+    <md-grid-tile-header>
+      <md-icon>favorite</md-icon>
+      Rating / Vote Count
+    </md-grid-tile-header>
+  </md-grid-tile>
+  <md-grid-tile>
+    <md-grid-tile-header>
+      Region
+    </md-grid-tile-header>
+  </md-grid-tile>
+  <md-grid-tile>
+    <md-grid-tile-header>
+      <md-icon>run</md-icon>
+      Difficulty
+    </md-grid-tile-header>
+  </md-grid-tile>
+  <md-grid-tile>
+    <md-grid-tile-header>
+      <md-icon>alarm</md-icon>
+      Time
+    </md-grid-tile-header>
+  </md-grid-tile>
+  <md-grid-tile>
+    <md-grid-tile-header>
+      <md-icon>location</md-icon>
+      Distance
+    </md-grid-tile-header>
+  </md-grid-tile>
+</md-grid-list>
+
+<md-grid-list cols="6" *ngFor="let trail of trails" rowHeight="40px">
+    <md-grid-tile>
+      {{trail.name}}
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-icon>favorite</md-icon>
+      <!--<md-icon *ngFor='let key of 5'>favorite</md-icon>-->
+      {{trail.rating}} &nbsp; {{trail.voteCount}}
+    </md-grid-tile>
+    <md-grid-tile>
+      {{trail.region}}
+    </md-grid-tile>
+    <md-grid-tile>
+      {{trail.difficulty}}
+    </md-grid-tile>
+    <md-grid-tile>
+      {{trail.time}} hours
+    </md-grid-tile>
+    <md-grid-tile>
+      {{trail.distance}} K.M.
+    </md-grid-tile>
+</md-grid-list>
