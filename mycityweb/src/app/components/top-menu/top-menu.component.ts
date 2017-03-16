@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
 })
 export class TopMenuComponent {
     menus = [
-        { text: "Trails" },
-        { text: "Parks" },
-        { text: "Beaches" },
-        { text: "Ski Resorts" }
+        { text: "Trails" }
+        //{ text: "Parks" },
+        //{ text: "Beaches" },
+        //{ text: "Ski Resorts" }
     ];
 
     constructor(private router: Router) { }  

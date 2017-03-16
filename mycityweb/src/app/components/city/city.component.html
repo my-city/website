@@ -3,11 +3,15 @@
   My City
   &nbsp;
   <div *ngIf="city">
-    -&nbsp;{{city.title}}
+    <!---&nbsp;-->
     <top-menu></top-menu>
   </div>
 </md-toolbar>
 
 <div *ngIf="city">
+  <h1>
+    {{city.title}}
+  </h1>
+  <trail-list></trail-list>
 
 </div>

@@ -16,6 +16,7 @@ import { CityComponent } from './components/city/city.component';
 import { TrailListComponent } from './components/trail/trail-list.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
+import { TrailsService } from './services/trails.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CitiesService } from './services/cities.service';
       AppRoutingModule
   ],
   providers: [
-      CitiesService
+      CitiesService,
+      TrailsService
   ],
   bootstrap: [AppComponent]
 })

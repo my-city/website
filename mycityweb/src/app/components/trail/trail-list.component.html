@@ -1,26 +1,9 @@
-﻿<md-grid-list cols="2" rowHeight="100px">
-  <md-grid-tile *ngFor="let city of cities"
-                [colspan]="city.cols"
-                [rowspan]="city.rows"
-                (click)="gotoDetail(city)">
-
-    <md-card class="city-card">
-      <md-card-header>
-        <div md-card-avatar class="example-header-image"></div>
-        <md-card-title>{{city.country}}, {{city.state}}</md-card-title>
-        <md-card-subtitle>{{city.title}}</md-card-subtitle>
-      </md-card-header>
-      <img md-card-image src="{{city.image}}">
-      <md-card-content>
-        <p>
-          {{city.description}}
-        </p>
-      </md-card-content>
-      <!--<md-card-actions>
-        <button md-button>LIKE</button>
-        <button md-button>SHARE</button>
-      </md-card-actions>-->
-    </md-card>
-
-  </md-grid-tile>
-</md-grid-list>
+﻿<md-list>
+  <h3 md-subheader>Trails</h3>
+  <md-list-item *ngFor="let trail of trails">
+    <md-icon md-list-avatar>folder</md-icon>
+    <h4 md-line>{{trail.name}}</h4>
+    <p md-line> {{trail.name}} </p>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>

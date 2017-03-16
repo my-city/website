@@ -1,16 +1,16 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CitiesService } from '../../services/cities.service';
-import { City } from '../../models/city';
+import { TrailsService } from '../../services/trails.service';
+import { Trail } from '../../models/trail';
 
 @Component({
     selector: 'trail-list',
     templateUrl: './trail-list.component.html',
 })
 export class TrailListComponent {
-    public cities: City[] = [];
+    public trails: Trail[] = [];
 
-    constructor(private citiesService: CitiesService, private router: Router) { }  
+    constructor(private trailsService: TrailsService, private router: Router) { }  
     
     public gotoDetail(trail) {
         // todo: should use title to be displayed in the browser
@@ -19,8 +19,8 @@ export class TrailListComponent {
     }
 
     ngOnInit(): void {
-        this.citiesService.getCities()
-            .then(cities => this.cities = cities);
+        this.trailsService.getTrails()
+            .then(trails => this.trails = trails);
     }
 
 }

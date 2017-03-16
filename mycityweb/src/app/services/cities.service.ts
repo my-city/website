@@ -25,7 +25,7 @@ export class CitiesService {
     const url = `${this.citiesUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-        .then(response => response.json().data as City)
+        .then(response => response.json() as City)
       .catch(this.handleError);
   }
 
