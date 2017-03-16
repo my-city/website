@@ -1,17 +1,4 @@
-﻿<md-toolbar color="primary">
-  <img src="./assets/mycity.png" style="height:60px" /> &nbsp;
-  My City
-  &nbsp;
-  <div *ngIf="city">
-    <!---&nbsp;-->
-    <top-menu></top-menu>
-  </div>
-</md-toolbar>
+﻿<top-menu></top-menu>
 
-<div *ngIf="city">
-  <h1>
-    {{city.title}}
-  </h1>
-  <trail-list></trail-list>
+<trail-list></trail-list>
 
-</div>
