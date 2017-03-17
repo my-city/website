@@ -1,10 +1,17 @@
-﻿<md-grid-list cols="2" rowHeight="100px">
+﻿<!--<md-grid-list cols="6" rowHeight="100px">
   <md-grid-tile *ngFor="let city of cities"
                 [colspan]="city.cols"
                 [rowspan]="city.rows"
-                (click)="gotoDetail(city)">
+                (click)="gotoDetail(city)">-->
 
-    <md-card class="city-card">
+<md-card>
+  <!--<md-card-title>Questions</md-card-title>-->
+  <md-card-content class="flex-container"
+                   fxLayoutWrap="wrap"
+                   fxLayout="row"
+                   fxLayoutAlign="center" fxLayoutAlign.xs="start">
+
+    <md-card *ngFor="let city of cities" class="city-card" (click)="gotoDetail(city)">
       <md-card-header>
         <div md-card-avatar class="example-header-image"></div>
         <md-card-title>{{city.country}}, {{city.state}}</md-card-title>
@@ -16,11 +23,18 @@
           {{city.description}}
         </p>
       </md-card-content>
-      <!--<md-card-actions>
-        <button md-button>LIKE</button>
-        <button md-button>SHARE</button>
-      </md-card-actions>-->
+      <md-card-actions>
+        <button md-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-button>
+          <md-icon>twitter</md-icon>
+        </button>
+      </md-card-actions>
     </md-card>
 
-  </md-grid-tile>
-</md-grid-list>
+  </md-card-content>
+</md-card>
+<!--</md-grid-tile>
+</md-grid-list>-->
+

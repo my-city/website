@@ -1,4 +1,9 @@
 ﻿/* You can add global styles to this file, and also import other style files */
 .city-card {
   max-width: 500px;
+  cursor: pointer;
 }
+
+  .city-card:hover {
+    background-color: #E8EAF6;
+  }

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core.module';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 // Imports for loading & configuring the in-memory web api
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -44,10 +45,11 @@ import { TrailsService } from './services/trails.service';
       BrowserModule,
       FormsModule,
       HttpModule,
-      MaterialModule,
+      MaterialModule.forRoot(),
       //InMemoryWebApiModule.forRoot(InMemoryDataService),
       AppRoutingModule,
-      CoreModule
+      CoreModule,
+      FlexLayoutModule.forRoot()
   ],
   providers: [
       CitiesService,
