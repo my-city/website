@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { Location } from '@angular/common';
 import { TrailsService } from '../../services/trails.service';
 import { Trail } from '../../models/trail';
 
@@ -9,6 +11,19 @@ import { Trail } from '../../models/trail';
 })
 export class TrailDetailComponent {
 
-    constructor(private trailsService: TrailsService, private router: Router) { }  
+    public trail: Trail;
+
+    constructor(
+        private trailsService: TrailsService,
+        private route: ActivatedRoute,
+        private location: Location) {
+
+    }  
+
+    ngOnInit(): void {
+        this.route.params
+            .switchMap((params: Params) => this.trailsService.getTrail(params['id']))
+            .subscribe(trail => this.trail = trail);
+    }
 
 }

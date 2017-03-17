@@ -28,6 +28,13 @@
                       <md-radio-button value="4">Difficulty</md-radio-button>
                       <md-radio-button value="5">Distance</md-radio-button>
                     </md-radio-group>
+                    <md-radio-group>
+                      <md-radio-button value="1"></md-radio-button>
+                      <md-radio-button value="2">Region</md-radio-button>
+                      <md-radio-button value="3">Time</md-radio-button>
+                      <md-radio-button value="4">Difficulty</md-radio-button>
+                      <md-radio-button value="5">Distance</md-radio-button>
+                    </md-radio-group>
                   </div>
                   <div class="parent">
                     <b>Filter By:</b>
@@ -56,7 +63,7 @@
                      fxLayout="row"
                      fxLayoutAlign="left" fxLayoutAlign.xs="start">
 
-      <md-card *ngFor="let trail of trails" class="city-card" (click)="gotoDetail(city)">
+      <md-card *ngFor="let trail of trails" class="city-card" (click)="gotoDetail(trail)">
         <md-card-header>
           <md-card-title>{{trail.name}}</md-card-title>
           <md-card-subtitle>{{trail.region}}</md-card-subtitle>
