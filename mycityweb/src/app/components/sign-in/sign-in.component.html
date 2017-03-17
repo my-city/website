@@ -1,27 +1,30 @@
-﻿<div *ngIf="user.google">
-  <small style="position:absolute; top:10px;right:100px;">
-    Hello, {{user.google.displayName}}
-    <br />
-    <button md-button (click)="logout()">
-      Logout
-    </button>
-  </small>
-  <img src="{{user.google.photoURL}}" class="user-image" />
-
+﻿<div class='md-padding' layout="row" flex>
+  <div layout="row" flex>
+    <div class="parent" layout="column" flex>
+      <div *ngIf="user.google">
+        <img src="{{user.google.photoURL}}" class="user-image" />
+      </div>
+    </div>
+    <div class="parent" layout="column" flex>
+      <div *ngIf="user.google">
+        <button md-button (click)="logout()">
+          Logout
+        </button>
+      </div>
+      <div *ngIf="!user.google">
+        <button md-button (click)="login()">
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="!user.google">
-  <button md-button (click)="login()">
-    Login
-  </button>
-</div>
 
 
 <style>
   .user-image {
-    position:relative;
-    margin-top:40px;
-    border-radius: 50%;
-    height: 80px;
+    border-radius: 10%;
+    height: 40px;
   }
 </style>
