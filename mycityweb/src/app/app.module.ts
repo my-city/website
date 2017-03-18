@@ -6,6 +6,7 @@ import { MaterialModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core.module';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { BusyModule } from 'angular2-busy';
 
 // Imports for loading & configuring the in-memory web api
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -23,6 +24,7 @@ import { TrailDetailComponent } from './components/trail/trail-detail.component'
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FooterComponent } from './components/layout/footer.component';
 import { HeaderComponent } from './components/layout/header.component';
+import { MapComponent } from './components/trail/map.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
 import { TrailsService } from './services/trails.service';
@@ -39,7 +41,8 @@ import { TrailsService } from './services/trails.service';
       NewTrailComponent,
       SignInComponent,
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      MapComponent
   ],
   imports: [
       BrowserModule,
@@ -49,6 +52,7 @@ import { TrailsService } from './services/trails.service';
       //InMemoryWebApiModule.forRoot(InMemoryDataService),
       AppRoutingModule,
       CoreModule,
+      BusyModule,
       FlexLayoutModule.forRoot()
   ],
   providers: [
