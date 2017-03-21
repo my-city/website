@@ -12,12 +12,6 @@ export class CityListComponent {
 
     constructor(private citiesService: CitiesService, private router: Router) { }  
     
-    public gotoDetail(city) {
-        // todo: should use title to be displayed in the browser
-        let link = ['/area', city.id];
-        this.router.navigate(link);
-    }
-
     ngOnInit(): void {
         this.citiesService.getCities()
             .then(cities => this.cities = cities);

@@ -16,7 +16,7 @@
     <md-card *ngFor="let city of cities" class="city-card" (click)="gotoDetail(city)">
       <md-card-header>
         <div md-card-avatar class="example-header-image"></div>
-        <md-card-title>{{city.country}}, {{city.state}}</md-card-title>
+        <md-card-title><a href="area/{{city.id}}/{{city.title}}" (click)="gotoDetail(city)">{{city.country}}, {{city.state}}</a></md-card-title>
         <md-card-subtitle>{{city.title}}</md-card-subtitle>
       </md-card-header>
       <img md-card-image src="{{city.image}}">

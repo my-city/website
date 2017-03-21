@@ -4,7 +4,9 @@ import 'rxjs/add/operator/switchMap';
 import { Location } from '@angular/common';
 import { TrailsService } from '../../services/trails.service';
 import { Trail } from '../../models/trail';
+import { Title } from '@angular/platform-browser';
 import { InstagramFeedService } from '../../services/instagramfeed.service';
+
 
 @Component({
     selector: 'trail-detail',
@@ -20,11 +22,15 @@ export class TrailDetailComponent {
         private trailsService: TrailsService,
         private route: ActivatedRoute,
         private location: Location,
-        private instagramFeedService: InstagramFeedService) {
+        private instagramFeedService: InstagramFeedService,
+        private titleService: Title) {
     
     }  
 
     ngOnInit(): void {
+
+        this.titleService.setTitle(this.route.snapshot.params['title']);
+
         this.route.params
             .switchMap((params: Params) => this.trailsService.getTrail(params['id']))
             .subscribe(trail => this.trail = trail);

@@ -14,8 +14,8 @@ export class TrailListComponent {
     
     public gotoDetail(trail) {
         // todo: should use title to be displayed in the browser
-        let link = ['/trail', trail.id];
-        this.router.navigate(link);
+        //let link = ['/trail', trail.id];
+        //this.router.navigate(link);
     }
 
     ngOnInit(): void {

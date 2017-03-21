@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'area/:id/:title', component: CityComponent },
   { path: 'area/:id/trails', component: TrailListComponent },
-  { path: 'trail/:id', component: TrailDetailComponent }
+  { path: 'trail/:id/:title', component: TrailDetailComponent }
 ];
 
 @NgModule({

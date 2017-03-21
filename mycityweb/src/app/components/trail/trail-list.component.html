@@ -1,9 +1,5 @@
 ﻿<div *ngIf="trails">
 
-  <!--<h1>
-    {{city.title}}
-  </h1>-->
-
   <md-card>
     <md-card-title>Greater Vancouver Area</md-card-title>
     <md-card-content class="flex-container"
@@ -65,7 +61,7 @@
 
       <md-card *ngFor="let trail of trails" class="city-card" (click)="gotoDetail(trail)">
         <md-card-header>
-          <md-card-title>{{trail.name}}</md-card-title>
+          <md-card-title><a href="trail/{{trail.id}}/{{trail.name}}">{{trail.name}}</a></md-card-title>
           <md-card-subtitle>{{trail.region}}</md-card-subtitle>
         </md-card-header>
         <!--<img md-card-image src="{{city.image}}">-->
