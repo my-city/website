@@ -1,6 +1,12 @@
 ﻿<div *ngIf="trail">
   
-    <h2>{{trail.name}}</h2>
+    <h2 class="trailName">
+      {{trail.name}} 
+    </h2>
+    <h5 class="trailDetail">
+      {{trail.difficulty}} trail, Takes {{trail.time}} hours for most people
+    </h5>
+
     <map-component></map-component>
 
     <md-card>
@@ -23,3 +29,14 @@
 
   </div>
 
+
+<style>
+  .trailName {
+    padding-left: 20px;
+    margin-bottom: 5px !important;
+  }
+  .trailDetail {
+    padding-left: 20px;
+    margin-top:5px !important;
+  }
+</style>
