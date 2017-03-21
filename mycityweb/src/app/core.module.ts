@@ -7,12 +7,14 @@ import {
     AuthMethods,
     AuthProviders
 } from "angularfire2";
+
 const firebaseConfig = {
-    apiKey: "FIRE_BASE_API_KEY",
-    authDomain: "FIRE_BASE_AUTH_DOMAIN",
-    databaseURL: "FIRE_BASE_DATABASE_URL",
-    storageBucket: "FIRE_BASE_STORAGE_BUCKET"
+    apiKey: "AIzaSyBVaBPQk0ndKtWNoRo8Sq_LD8_6oKr9czI",
+    authDomain: "mycity-25913.firebaseapp.com",
+    databaseURL: "https://mycity-25913.firebaseio.com",
+    storageBucket: "mycity-25913.appspot.com"
 };
+
 @NgModule({
     imports: [
         BrowserModule,

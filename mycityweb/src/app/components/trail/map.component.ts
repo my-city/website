@@ -6,15 +6,11 @@ import { Router } from '@angular/router';
     templateUrl: './map.component.html',
 })
 export class MapComponent {
-    google: any;
-    OnInit(): void {
 
-        let options = {
-            center: new this.google.maps.LatLng(53.83305, -1.66412),
-            zoom: 3,
-            MapTypeId: this.google.maps.MapTypeId.TERRAIN
-        };
-        let map = new this.google.maps.Map(document.getElementById("map"), options);
+    lat: number = 51.678418;
+    lng: number = 7.809007;
+
+    OnInit(): void {
 
     }
 }

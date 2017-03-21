@@ -8,6 +8,7 @@ import { MaterialModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core.module';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 // Imports for loading & configuring the in-memory web api
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -53,7 +54,10 @@ import { TrailsService } from './services/trails.service';
       //InMemoryWebApiModule.forRoot(InMemoryDataService),
       AppRoutingModule,
       CoreModule,
-      FlexLayoutModule.forRoot()
+      FlexLayoutModule.forRoot(),
+      AgmCoreModule.forRoot({
+          apiKey: 'YOUR_KEY'
+      })
   ],
   providers: [
       CitiesService,
