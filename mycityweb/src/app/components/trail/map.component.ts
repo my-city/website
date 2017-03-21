@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
 })
 export class MapComponent {
 
-    lat: number = 51.678418;
-    lng: number = 7.809007;
+    lat: number = 49.351889;
+    lng: number = -122.859846;
+    zm: number = 12;
 
     OnInit(): void {
 
