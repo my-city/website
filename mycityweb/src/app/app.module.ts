@@ -1,4 +1,6 @@
-﻿import { BrowserModule, Title } from '@angular/platform-browser';
+﻿
+
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -6,7 +8,6 @@ import { MaterialModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core.module';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { BusyModule } from 'angular2-busy';
 
 // Imports for loading & configuring the in-memory web api
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -52,7 +53,6 @@ import { TrailsService } from './services/trails.service';
       //InMemoryWebApiModule.forRoot(InMemoryDataService),
       AppRoutingModule,
       CoreModule,
-      BusyModule,
       FlexLayoutModule.forRoot()
   ],
   providers: [
