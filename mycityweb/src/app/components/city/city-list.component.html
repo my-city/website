@@ -24,6 +24,7 @@
         </p>
       </md-card-content>
       <md-card-actions>
+        <a href="area/{{city.id}}/{{city.title}}" (click)="gotoDetail(city)">Details</a>
         <button md-button>
           <md-icon>favorite</md-icon>
         </button>
@@ -38,3 +39,13 @@
 <!--</md-grid-tile>
 </md-grid-list>-->
 
+<style>
+  /* You can add global styles to this file, and also import other style files */
+  .city-card {
+    max-width: 500px;
+  }
+
+  /*.city-card:hover {
+    background-color: #E8EAF6;
+  }*/
+</style>

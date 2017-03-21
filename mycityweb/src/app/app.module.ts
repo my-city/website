@@ -1,4 +1,4 @@
-﻿import { BrowserModule } from '@angular/platform-browser';
+﻿import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -53,7 +53,8 @@ import { TrailsService } from './services/trails.service';
   ],
   providers: [
       CitiesService,
-      TrailsService
+      TrailsService,
+      Title
   ],
   bootstrap: [AppComponent]
 })
