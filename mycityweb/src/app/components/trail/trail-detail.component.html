@@ -1,14 +1,14 @@
 ﻿<div *ngIf="trail">
-  <map-component></map-component>
+  
+    <h2>{{trail.name}}</h2>
+    <map-component></map-component>
 
     <md-card>
-      <md-card-title>{{trail.name}}</md-card-title>
       <md-card-content class="flex-container"
                        fxLayoutWrap="wrap"
                        fxLayout="row"
                        fxLayoutAlign="left" fxLayoutAlign.xs="start">
               
-
               <div class="parent">
                 {{trail.description}}
               </div>
