@@ -15,15 +15,17 @@
                        fxLayout="row"
                        fxLayoutAlign="left" fxLayoutAlign.xs="start">
               
-              <div class="parent">
-                {{trail.description}}
-              </div>
-              <div class="parent">
-                {{trail.time}}
-              </div>
-              <div class="parent">
-                {{trail.distance}}
-              </div>
+          <div class="parent">
+            {{trail.description}}
+            <md-checkbox [checked] ="trail.dogFriendly">Dog Friendly</md-checkbox>
+            <md-checkbox [checked] ="trail.camping">Camping</md-checkbox>
+            <md-checkbox [checked] ="trail.publicTransit">Public Transit</md-checkbox>
+
+            <hr />            
+            Comments:
+
+          </div>
+
       </md-card-content>
     </md-card>
 
