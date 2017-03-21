@@ -22,6 +22,7 @@ import { CityComponent } from './components/city/city.component';
 import { TrailListComponent } from './components/trail/trail-list.component';
 import { NewTrailComponent } from './components/trail/new-trail.component';
 import { TrailDetailComponent } from './components/trail/trail-detail.component';
+import { InstagramFeedComponent } from './components/trail/instagram-feed.component';
 
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FooterComponent } from './components/layout/footer.component';
@@ -30,6 +31,7 @@ import { MapComponent } from './components/trail/map.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
 import { TrailsService } from './services/trails.service';
+import { InstagramFeedService } from './services/instagramfeed.service';
 
 @NgModule({
   declarations: [
@@ -41,9 +43,11 @@ import { TrailsService } from './services/trails.service';
       TrailListComponent,
       TrailDetailComponent,
       NewTrailComponent,
+      InstagramFeedComponent,
       SignInComponent,
       HeaderComponent,
       FooterComponent,
+      
       MapComponent
   ],
   imports: [
@@ -62,7 +66,8 @@ import { TrailsService } from './services/trails.service';
   providers: [
       CitiesService,
       TrailsService,
-      Title
+      Title,
+      InstagramFeedService
   ],
   bootstrap: [AppComponent]
 })
