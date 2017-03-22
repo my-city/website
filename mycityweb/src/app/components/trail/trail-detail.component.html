@@ -1,7 +1,7 @@
 ﻿<div *ngIf="trail">
   
     <h2 class="trailName">
-      {{trail.name}} 
+      {{trail.name}}  <app-rating [rating]='trail.rating' [itemId]='trail.id' (ratingClick)='ratingComponetClick($event)'></app-rating>
     </h2>
     <h5 class="trailDetail">
       <u>{{trail.difficulty}}</u> trail. About <u>{{trail.distance}} Kilometers</u>. Takes <u>{{trail.time}} hours</u> for most people to complete.
@@ -10,22 +10,21 @@
     <map-component></map-component>
 
     <md-card>
-      <md-card-content class="flex-container"
-                       fxLayoutWrap="wrap"
-                       fxLayout="row"
-                       fxLayoutAlign="left" fxLayoutAlign.xs="start">
-              
-          <div class="parent">
+      <md-card-content>
+        <div layout="row" flex>
+          <div class="parent" layout="column" flex>
             {{trail.description}}
-            <md-checkbox [checked] ="trail.dogFriendly">Dog Friendly</md-checkbox>
-            <md-checkbox [checked] ="trail.camping">Camping</md-checkbox>
-            <md-checkbox [checked] ="trail.publicTransit">Public Transit</md-checkbox>
-
-            <hr />            
-            Comments:
-
+            <md-checkbox [checked]="trail.dogFriendly">Dog Friendly</md-checkbox>
+            <md-checkbox [checked]="trail.camping">Camping</md-checkbox>
+            <md-checkbox [checked]="trail.publicTransit">Public Transit</md-checkbox>
           </div>
-
+        </div>
+        <div layout="row" flex>
+          <div class="parent" layout="column" flex>
+            <hr />
+            Comments:
+          </div>
+        </div>
       </md-card-content>
     </md-card>
 

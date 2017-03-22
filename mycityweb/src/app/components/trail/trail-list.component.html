@@ -1,5 +1,12 @@
 ﻿<div *ngIf="trails">
 
+  <md-toolbar color="">
+    <button md-button (click)="gotoDetail(menu)">
+        <md-icon>add</md-icon>
+        New Trail
+    </button>
+  </md-toolbar>
+
   <md-card class="city-card-filter">
     <md-card-content>
       <div class="flex-container"
