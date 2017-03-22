@@ -27,6 +27,8 @@ import { InstagramFeedComponent } from './components/trail/instagram-feed.compon
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FooterComponent } from './components/layout/footer.component';
 import { HeaderComponent } from './components/layout/header.component';
+import { RatingComponent } from './components/rating/rating.component';
+
 import { MapComponent } from './components/trail/map.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
@@ -47,7 +49,7 @@ import { InstagramFeedService } from './services/instagramfeed.service';
       SignInComponent,
       HeaderComponent,
       FooterComponent,
-      
+      RatingComponent,
       MapComponent
   ],
   imports: [

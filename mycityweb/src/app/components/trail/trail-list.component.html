@@ -1,54 +1,37 @@
 ﻿<div *ngIf="trails">
 
-  <md-card>
-    <md-card-title>Greater Vancouver Area</md-card-title>
-    <md-card-content class="flex-container"
-                     fxLayoutWrap="wrap"
-                     fxLayout="row"
-                     fxLayoutAlign="left" fxLayoutAlign.xs="start">
-
-      <md-card class="city-card-filter">
-        <md-card-content>
-          <div class="flex-container"
-               fxLayoutWrap="wrap"
-               fxLayout="row"
-               fxLayoutAlign="left" fxLayoutAlign.xs="start">
-                  <div class="parent">
-                    <b>Sort By:</b>
-                  </div>
-                  <div class="parent">
-                    <md-radio-group>
-                      <md-radio-button value="1">Name</md-radio-button>
-                      <md-radio-button value="2">Region</md-radio-button>
-                      <md-radio-button value="3">Time</md-radio-button>
-                      <md-radio-button value="4">Difficulty</md-radio-button>
-                      <md-radio-button value="5">Distance</md-radio-button>
-                    </md-radio-group>
-                    <md-radio-group>
-                      <md-radio-button value="1"></md-radio-button>
-                      <md-radio-button value="2">Region</md-radio-button>
-                      <md-radio-button value="3">Time</md-radio-button>
-                      <md-radio-button value="4">Difficulty</md-radio-button>
-                      <md-radio-button value="5">Distance</md-radio-button>
-                    </md-radio-group>
-                  </div>
-                  <div class="parent">
-                    <b>Filter By:</b>
-                  </div>
-                  <div class="parent">
-                    <md-input-container>
-                      <input mdInput placeholder="Title" value="" type="text">
-                    </md-input-container>
-                  </div>
-                  <div class="parent">
-                    <md-input-container>
-                      <input mdInput placeholder="Region" value="" type="text">
-                    </md-input-container>
-                  </div>
-            </div>
-        </md-card-content>
-      </md-card>
-
+  <md-card class="city-card-filter">
+    <md-card-content>
+      <div class="flex-container"
+            fxLayoutWrap="wrap"
+            fxLayout="row"
+            fxLayoutAlign="left" fxLayoutAlign.xs="start">
+              <div class="parent">
+                <b>Sort By:</b>
+              </div>
+              <div class="parent">
+                <md-radio-group>
+                  <md-radio-button value="1" selected = "true">Name</md-radio-button>
+                  <md-radio-button value="2">Region</md-radio-button>
+                  <md-radio-button value="3">Time</md-radio-button>
+                  <md-radio-button value="4">Difficulty</md-radio-button>
+                  <md-radio-button value="5">Distance</md-radio-button>
+                </md-radio-group>
+              </div>
+              <div class="parent">
+                <b>Filter By:</b>
+              </div>
+              <div class="parent">
+                <md-input-container>
+                  <input mdInput placeholder="Title" value="" type="text">
+                </md-input-container>
+              </div>
+              <div class="parent">
+                <md-input-container>
+                  <input mdInput placeholder="Region" value="" type="text">
+                </md-input-container>
+              </div>
+        </div>
     </md-card-content>
   </md-card>
 
@@ -59,28 +42,44 @@
                      fxLayout="row"
                      fxLayoutAlign="left" fxLayoutAlign.xs="start">
 
-      <md-card *ngFor="let trail of trails" class="city-card" (click)="gotoDetail(trail)">
+      <md-card *ngFor="let trail of trails" class="city-card">
         <md-card-header>
-          <md-card-title><a href="trail/{{trail.id}}/{{trail.name}}">{{trail.name}}</a></md-card-title>
-          <md-card-subtitle>{{trail.region}}</md-card-subtitle>
+          <md-card-title><a href="trail/{{trail.id}}/{{trail.name}}" class="trailName">{{trail.name}}</a></md-card-title>
+          <md-card-subtitle>
+          {{trail.region}}
+          </md-card-subtitle>
         </md-card-header>
-        <!--<img md-card-image src="{{city.image}}">-->
+        <img md-card-image src="{{trail.image}}" class="trailPicture">
         <md-card-content>
-          <p>
-            {{trail.rating}} &nbsp; {{trail.voteCount}}
-            {{trail.difficulty}}
-            {{trail.time}}
-            {{trail.distance}}
-          </p>
+          <div layout="row" flex>
+                <app-rating [rating]='trail.rating' [itemId]='trail.id' (ratingClick)='ratingComponetClick($event)'></app-rating>
+          </div>
+          <div layout="row" flex>
+                {{trail.difficulty}} trail. 
+          </div>
+          <div layout="row" flex>
+              About&nbsp;<u>{{trail.distance}} k.m</u>&nbsp;long.
+          </div>
+          <div layout="row" flex>
+              Takes&nbsp;<u>{{trail.time}} hours</u>&nbsp;on average.
+          </div>
         </md-card-content>
-        <!--<md-card-actions>
-          <button md-button>
-            <md-icon>favorite</md-icon>
+        <md-card-actions>
+          <button md-icon-button [mdMenuTriggerFor]="menu">
+            <md-icon>more_vert</md-icon>
           </button>
-          <button md-button>
-            <md-icon>twitter</md-icon>
-          </button>
-        </md-card-actions>-->
+          <md-menu #menu="mdMenu">
+            <button md-menu-item>
+              <md-icon>dialpad</md-icon>
+              <span>Share with Twitter</span>
+            </button>
+            <button md-menu-item>
+              <md-icon>voicemail</md-icon>
+              <span>Share with Facebook</span>
+            </button>
+          </md-menu>
+
+        </md-card-actions>
       </md-card>
 
     </md-card-content>
@@ -96,5 +95,19 @@
 
   .city-card-filter {
     width:100%;
+  }
+
+  .trailName {
+    text-decoration: none;
+    color: #3f51b5;
+    font-weight:600;
+  }
+
+  .trailPicture {
+    width:100%;
+  }
+
+  .trailDetails {
+    color: rgba(0,0,0,.54);
   }
 </style>

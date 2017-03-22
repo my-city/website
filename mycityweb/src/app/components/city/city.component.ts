@@ -24,6 +24,7 @@ export class CityComponent implements OnInit {
     { }
 
     ngOnInit(): void {
+
         this.titleService.setTitle(this.route.snapshot.params['title']);
 
         this.route.params
