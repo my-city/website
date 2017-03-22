@@ -19,6 +19,7 @@ export class TrailListComponent {
     
 
     ngOnInit(): void {
+        
         this.trailsService.getTrails()
             .then(trails => this.trails = trails);
     }

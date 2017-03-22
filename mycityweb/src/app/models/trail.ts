@@ -21,7 +21,11 @@
         path: string,
         title: string
     }[];
+    lat: number;
+    alt: number;
+    hashtags: string;
     geoLocation: {
+
         address: string;
         coordinates: number[];
     };

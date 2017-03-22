@@ -14,48 +14,114 @@
 </div>
 
 <md-card>
-  <h2>New Trail</h2>
+  <md-card-content>
+    <h2>New Trail</h2>
 
-  <form>
+      <div layout="row" flex style="max-width:500px;">
+        <div class="parent" layout="column" flex>
 
-    <md-select placeholder="Region">
-      <md-option *ngFor="let region of regions" [value]="">
-        {{ region }}
-      </md-option>
-    </md-select>
+          <md-select placeholder="Region">
+            <md-option *ngFor="let region of regions" [value]="trail.region">
+              {{ region }}
+            </md-option>
+          </md-select>
 
-    <md-input-container>
-      <input mdInput placeholder="Title" value="">
-    </md-input-container>
+        </div>
+      </div>
 
-    <md-input-container>
-      <input mdInput placeholder="Description" value="">
-    </md-input-container>
+      <div layout="row" flex style="max-width:500px;">
+        <div class="parent" layout="column" flex>
 
-    <md-input-container>
-      <input mdInput type="number" placeholder="Length" value="">
-    </md-input-container>
+          <md-input-container>
+            <input mdInput placeholder="Title" [(ngModel)]="trail.name">
+          </md-input-container>
 
-    <md-select placeholder="Difficulty">
-      <md-option *ngFor="let difficulty of difficulties" [value]="">
-        {{ difficulty }}
-      </md-option>
-    </md-select>
+        </div>
+      </div>
 
-    <md-input-container>
-      <input mdInput type="number" placeholder="Lat" value="">
-    </md-input-container>
+      <div layout="row" flex>
+        <div class="parent" layout="column" flex>
+
+          <md-input-container>
+            <textarea mdInput placeholder="Description" [(ngModel)]="trail.description"></textarea>
+          </md-input-container>
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-input-container>
+            <input mdInput type="number" placeholder="Length" [(ngModel)]="trail.distance">
+            <span md-suffix>k.m.</span>
+          </md-input-container>
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-input-container>
+            <input mdInput type="number" placeholder="Duration" [(ngModel)]="trail.time">
+            <span md-suffix>hours</span>
+          </md-input-container>
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-select placeholder="Difficulty">
+            <md-option *ngFor="let difficulty of difficulties" [(ngModel)]="trail.difficulty">
+              {{ difficulty }}
+            </md-option>
+          </md-select>
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-input-container>
+            <input mdInput type="number" placeholder="Lat" [(ngModel)]="trail.lat">
+          </md-input-container>
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
 
 
-    <md-input-container>
-      <input mdInput type="number" placeholder="Alt" value="">
-    </md-input-container>
+          <md-input-container>
+            <input mdInput type="number" placeholder="Alt" [(ngModel)]="trail.alt">
+          </md-input-container>
 
-    <md-input-container>
-      <input mdInput placeholder="Hash Tags" value="">
-    </md-input-container>
+        </div>
+      </div>
 
-  </form>
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-input-container>
+            <input mdInput placeholder="Hash Tags" [(ngModel)]="trail.hashtags">
+          </md-input-container>
+
+        </div>
+      </div>
+
+  </md-card-content>
+  <md-card-actions>
+    <button md-raised-button color="primary" (click)="save(trail)">
+        <md-icon>save</md-icon>
+        SAVE
+    </button>
+  </md-card-actions>
+
 
 </md-card>
 
