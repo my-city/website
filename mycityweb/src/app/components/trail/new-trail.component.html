@@ -14,14 +14,16 @@
 </div>
 
 <md-card>
-  <md-card-content>
-    <h2>New Trail</h2>
+  
+  <form>
+    <md-card-content>
+      <h2>New Trail</h2>
 
       <div layout="row" flex style="max-width:500px;">
         <div class="parent" layout="column" flex>
 
-          <md-select placeholder="Region">
-            <md-option *ngFor="let region of regions" [value]="trail.region">
+          <md-select placeholder="Region" name="region">
+            <md-option *ngFor="let region of regions">
               {{ region }}
             </md-option>
           </md-select>
@@ -33,7 +35,7 @@
         <div class="parent" layout="column" flex>
 
           <md-input-container>
-            <input mdInput placeholder="Title" [(ngModel)]="trail.name">
+            <input mdInput placeholder="Title" [(ngModel)]="trail.name" name="name">
           </md-input-container>
 
         </div>
@@ -43,7 +45,7 @@
         <div class="parent" layout="column" flex>
 
           <md-input-container>
-            <textarea mdInput placeholder="Description" [(ngModel)]="trail.description"></textarea>
+            <textarea mdInput placeholder="Description" [(ngModel)]="trail.description" name="description"></textarea>
           </md-input-container>
 
         </div>
@@ -53,7 +55,7 @@
         <div class="parent" layout="column" flex>
 
           <md-input-container>
-            <input mdInput type="number" placeholder="Length" [(ngModel)]="trail.distance">
+            <input mdInput type="number" placeholder="Length" [(ngModel)]="trail.distance" name="distance">
             <span md-suffix>k.m.</span>
           </md-input-container>
 
@@ -64,7 +66,7 @@
         <div class="parent" layout="column" flex>
 
           <md-input-container>
-            <input mdInput type="number" placeholder="Duration" [(ngModel)]="trail.time">
+            <input mdInput type="number" placeholder="Duration" [(ngModel)]="trail.time" name="time">
             <span md-suffix>hours</span>
           </md-input-container>
 
@@ -74,8 +76,8 @@
       <div layout="row" flex style="max-width:200px;">
         <div class="parent" layout="column" flex>
 
-          <md-select placeholder="Difficulty">
-            <md-option *ngFor="let difficulty of difficulties" [(ngModel)]="trail.difficulty">
+          <md-select placeholder="Difficulty" name="difficulty">
+            <md-option *ngFor="let difficulty of difficulties">
               {{ difficulty }}
             </md-option>
           </md-select>
@@ -87,7 +89,7 @@
         <div class="parent" layout="column" flex>
 
           <md-input-container>
-            <input mdInput type="number" placeholder="Lat" [(ngModel)]="trail.lat">
+            <input mdInput type="number" placeholder="Lat" [(ngModel)]="trail.lat" name="lat">
           </md-input-container>
 
         </div>
@@ -98,7 +100,7 @@
 
 
           <md-input-container>
-            <input mdInput type="number" placeholder="Alt" [(ngModel)]="trail.alt">
+            <input mdInput type="number" placeholder="Alt" [(ngModel)]="trail.alt" name="alt">
           </md-input-container>
 
         </div>
@@ -108,20 +110,47 @@
         <div class="parent" layout="column" flex>
 
           <md-input-container>
-            <input mdInput placeholder="Hash Tags" [(ngModel)]="trail.hashtags">
+            <input mdInput placeholder="Hash Tags" [(ngModel)]="trail.hashtags" name="hashtags" >
           </md-input-container>
 
         </div>
       </div>
 
-  </md-card-content>
-  <md-card-actions>
-    <button md-raised-button color="primary" (click)="save(trail)">
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-checkbox >Dog Friendly</md-checkbox>
+          <!--<md-checkbox>Dog Friendly</md-checkbox>-->
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <!--<md-checkbox [(ngModel)]="trail.publicTransit">Public Transit</md-checkbox>-->
+          <md-checkbox name="publicTransit">Public Transit</md-checkbox>
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-checkbox >Camping</md-checkbox>
+          <!--<md-checkbox [(ngModel)]="trail.camping">Camping</md-checkbox>-->
+
+        </div>
+      </div>
+
+    </md-card-content>
+    <md-card-actions>
+      <button md-raised-button color="primary" (click)="save(trail)" name="save">
         <md-icon>save</md-icon>
         SAVE
-    </button>
-  </md-card-actions>
-
+      </button>
+    </md-card-actions>
+  </form>
 
 </md-card>
 
