@@ -1,10 +1,38 @@
 ﻿<md-toolbar color="primary">
-  
-  <img src="./assets/mycity.png" style="height:60px" /> &nbsp;
-  My City
-  
+
+    <div layout="row" flex>
+      <div class="parent" layout="column" flex style="max-width:70px; padding-top:5px;">
+        <a href="/" class="siteName">
+          <img src="./assets/mycity.png" style="height:60px; width:60px" />
+        </a>
+      </div>
+      <div class="parent" layout="column" flex style="padding-top:25px;">
+        <a href="/" class="siteName">
+          My City
+        </a>
+      </div>
+    </div>
+    
   <span flex></span>
   
   <sign-in></sign-in>
   
 </md-toolbar>
+
+
+<style>
+  .siteName {
+    text-decoration:none !important;
+    color:white;
+    vertical-align:top;
+  }
+
+  .siteName img {
+    
+  }
+
+  .siteName span{
+    position:relative !important;
+    margin-top:-10px;
+  }
+</style>
