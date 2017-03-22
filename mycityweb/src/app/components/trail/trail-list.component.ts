@@ -32,4 +32,10 @@ export class TrailListComponent {
         }
     }
 
+    newTrail(): void {
+        let link = ['/trail/new'];
+        this.router.navigate(link);
+    }
+
+
 }

@@ -5,13 +5,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CityComponent } from './components/city/city.component';
 import { TrailListComponent } from './components/trail/trail-list.component';
 import { TrailDetailComponent } from './components/trail/trail-detail.component';
+import { NewTrailComponent } from './components/trail/new-trail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'area/:id/:title', component: CityComponent },
   { path: 'area/:id/trails', component: TrailListComponent },
-  { path: 'trail/:id/:title', component: TrailDetailComponent }
+  { path: 'trail/:id/:title', component: TrailDetailComponent },
+  { path: 'trail/new', component: NewTrailComponent }
 ];
 
 @NgModule({

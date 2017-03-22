@@ -1,1 +1,72 @@
-﻿<h1>New Trail</h1>
+﻿<top-menu></top-menu>
+
+<div *ngIf="city">
+  <div layout="row" flex>
+    <div class="parent" layout="column" flex style="max-width:60px;">
+      <a href="/" class="siteHome" title="Home">
+        <md-icon>home</md-icon>
+      </a>
+    </div>
+    <div class="parent" layout="column" flex>
+      <h2 class="cityName">Greater Vancouver Area</h2>
+    </div>
+  </div>
+</div>
+
+<md-card>
+  <h2>New Trail</h2>
+
+  <form>
+
+    <md-select placeholder="Region">
+      <md-option *ngFor="let region of regions" [value]="">
+        {{ region }}
+      </md-option>
+    </md-select>
+
+    <md-input-container>
+      <input mdInput placeholder="Title" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Description" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput type="number" placeholder="Length" value="">
+    </md-input-container>
+
+    <md-select placeholder="Difficulty">
+      <md-option *ngFor="let difficulty of difficulties" [value]="">
+        {{ difficulty }}
+      </md-option>
+    </md-select>
+
+    <md-input-container>
+      <input mdInput type="number" placeholder="Lat" value="">
+    </md-input-container>
+
+
+    <md-input-container>
+      <input mdInput type="number" placeholder="Alt" value="">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Hash Tags" value="">
+    </md-input-container>
+
+  </form>
+
+</md-card>
+
+
+
+<style>
+  .siteHome {
+    padding: 20px;
+  }
+
+  .cityName {
+    color: #3f51b5;
+  }
+</style>
