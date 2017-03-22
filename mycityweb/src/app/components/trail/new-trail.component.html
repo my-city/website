@@ -119,8 +119,7 @@
       <div layout="row" flex style="max-width:200px;">
         <div class="parent" layout="column" flex>
 
-          <md-checkbox >Dog Friendly</md-checkbox>
-          <!--<md-checkbox>Dog Friendly</md-checkbox>-->
+          <md-checkbox name="dogFriendly" [(ngModel)]="trail.dogFriendly">Dog Friendly</md-checkbox>
 
         </div>
       </div>
@@ -128,8 +127,7 @@
       <div layout="row" flex style="max-width:200px;">
         <div class="parent" layout="column" flex>
 
-          <!--<md-checkbox [(ngModel)]="trail.publicTransit">Public Transit</md-checkbox>-->
-          <md-checkbox name="publicTransit">Public Transit</md-checkbox>
+          <md-checkbox name="publicTransit" [(ngModel)]="trail.publicTransit">Public Transit</md-checkbox>
 
         </div>
       </div>
@@ -137,8 +135,15 @@
       <div layout="row" flex style="max-width:200px;">
         <div class="parent" layout="column" flex>
 
-          <md-checkbox >Camping</md-checkbox>
-          <!--<md-checkbox [(ngModel)]="trail.camping">Camping</md-checkbox>-->
+          <md-checkbox name="camping" [(ngModel)]="trail.camping">Camping</md-checkbox>
+
+        </div>
+      </div>
+
+      <div layout="row" flex style="max-width:200px;">
+        <div class="parent" layout="column" flex>
+
+          <md-checkbox name="camping" [(ngModel)]="trail.camping">Camping</md-checkbox>
 
         </div>
       </div>
