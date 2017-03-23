@@ -31,9 +31,9 @@ export class TrailDetailComponent {
 
         this.route.params
             .switchMap((params: Params) => this.trailsService.getTrail(params['id']))
-            .subscribe(function (trail) {
-                $self.trail = trail;
-                $self.showPictures(trail.hashtags);
+            .subscribe(function (trail: Trail) {
+                    $self.trail = trail;
+                    $self.showPictures(trail.hashtags);
             });
         
     }
@@ -44,8 +44,8 @@ export class TrailDetailComponent {
             .then(function (feeds) {
                 self.feeds = feeds;
                 for (let feed of self.feeds) {
-                    //let doc = new DOMParser().parseFromString(feed);
-
+                    let imagePath = (new DOMParser().parseFromString(feed.content, "text/html")).getElementsByTagName('img')[0].src;
+                    feed.image = imagePath;
                 }
 
 

@@ -4,6 +4,7 @@
   <md-card-subtitle>{{feed.pubDate | date:'dd-MM-yyyy'}}</md-card-subtitle>
   <md-card-content>
     <!--{{feed.content}}-->
-    <div [innerHTML]="feed.content"></div>
+    <img [src]="feed.image" />
+    <!--<div [innerHTML]="feed.content"></div>-->
   </md-card-content>
 </md-card>
