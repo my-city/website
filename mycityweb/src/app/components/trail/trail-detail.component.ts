@@ -35,14 +35,21 @@ export class TrailDetailComponent {
             .switchMap((params: Params) => this.trailsService.getTrail(params['id']))
             .subscribe(trail => this.trail = trail);
 
-        this.refreshFeed();
+        this.showPictures();
     }
 
-    private refreshFeed() {
-        this.instagramFeedService.getFeedContent(this.feedUrl)
-            .subscribe(
-            feed => this.feeds = feed.channel,
-            error => console.log(error));
+    private showPictures() {
+        var self = this;
+        this.instagramFeedService.getPictures("bunztenlake")
+            .then(function (feeds) {
+                self.feeds = feeds;
+                for (let feed of self.feeds) {
+                    //let doc = new DOMParser().parseFromString(feed);
+
+                }
+
+
+            });
     }
 
 }

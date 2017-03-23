@@ -1,9 +1,6 @@
 ﻿export class InstagramFeed {
-    channel: string;
-    //{
-    //    title: string;
-    //    pubDate: string;
-    //    media: string;
-    //    description: string;
-    //}[]
- }
+    pubDate: string;
+    content: string;
+    title: string;
+    image: string;
+}
