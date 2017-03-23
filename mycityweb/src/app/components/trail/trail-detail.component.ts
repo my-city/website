@@ -45,7 +45,9 @@ export class TrailDetailComponent {
                 self.feeds = feeds;
                 for (let feed of self.feeds) {
                     let imagePath = (new DOMParser().parseFromString(feed.content, "text/html")).getElementsByTagName('img')[0].src;
+                    let imageTitle = (new DOMParser().parseFromString(feed.content, "text/html")).getElementsByTagName('body')[0].firstChild.textContent;
                     feed.image = imagePath;
+                    feed.content = imageTitle;
                 }
 
 
