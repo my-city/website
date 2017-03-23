@@ -7,7 +7,6 @@ import { Trail } from '../../models/trail';
 import { Title } from '@angular/platform-browser';
 import { InstagramFeedService } from '../../services/instagramfeed.service';
 
-
 @Component({
     selector: 'trail-detail',
     templateUrl: './trail-detail.component.html',
@@ -15,7 +14,6 @@ import { InstagramFeedService } from '../../services/instagramfeed.service';
 export class TrailDetailComponent {
 
     public trail: Trail;
-    private feedUrl: string = 'buntzenlake';
     private feeds: any;
 
     constructor(
@@ -28,19 +26,21 @@ export class TrailDetailComponent {
     }  
 
     ngOnInit(): void {
-
+        var $self = this;
         this.titleService.setTitle(this.route.snapshot.params['title']);
 
         this.route.params
             .switchMap((params: Params) => this.trailsService.getTrail(params['id']))
-            .subscribe(trail => this.trail = trail);
-
-        this.showPictures();
+            .subscribe(function (trail) {
+                $self.trail = trail;
+                $self.showPictures(trail.hashtags);
+            });
+        
     }
 
-    private showPictures() {
+    private showPictures(hashtags) {
         var self = this;
-        this.instagramFeedService.getPictures("bunztenlake")
+        this.instagramFeedService.getPictures(hashtags)
             .then(function (feeds) {
                 self.feeds = feeds;
                 for (let feed of self.feeds) {
