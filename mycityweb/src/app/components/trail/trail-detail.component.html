@@ -1,44 +1,61 @@
 ﻿<div *ngIf="trail">
-  
-    <h2 class="trailName">
-      {{trail.name}}  <app-rating [rating]='trail.rating' [itemId]='trail.id' (ratingClick)='ratingComponetClick($event)'></app-rating>
-    </h2>
-    <h5 class="trailDetail">
-      <u>{{trail.difficulty}}</u> trail. About <u>{{trail.distance}} Kilometers</u>. Takes <u>{{trail.time}} hours</u> for most people to complete.
-    </h5>
 
-    <map-component></map-component>
+  <h2 class="trailName">
+    {{trail.name}}  <app-rating [rating]='trail.rating' [itemId]='trail.id' (ratingClick)='ratingComponetClick($event)'></app-rating>
+  </h2>
+  <h5 class="trailDetail">
+    <u>{{trail.difficulty}}</u> trail. About <u>{{trail.distance}} Kilometers</u>. Takes <u>{{trail.time}} hours</u> for most people to complete.
+  </h5>
 
-    <md-card>
-      <md-card-content>
-        <div layout="row" flex>
-          <div class="parent" layout="column" flex>
-            {{trail.description}}
-            <md-checkbox [checked]="trail.dogFriendly">Dog Friendly</md-checkbox>
-            <md-checkbox [checked]="trail.camping">Camping</md-checkbox>
-            <md-checkbox [checked]="trail.publicTransit">Public Transit</md-checkbox>
-          </div>
+  <map-component></map-component>
+
+  <md-card>
+    <md-card-content>
+      <div layout="row" flex>
+        <div class="parent" layout="column" flex>
+          {{trail.description}}
+          <md-checkbox [checked]="trail.dogFriendly">Dog Friendly</md-checkbox>
+          <md-checkbox [checked]="trail.camping">Camping</md-checkbox>
+          <md-checkbox [checked]="trail.publicTransit">Public Transit</md-checkbox>
         </div>
-        <div layout="row" flex>
-          <div class="parent" layout="column" flex>
-            <hr />
-            Comments:
-          </div>
+      </div>
+      <div layout="row" flex>
+        <div class="parent" layout="column" flex>
+          <hr />
+          Comments:
         </div>
-      </md-card-content>
-    </md-card>
+      </div>
+    </md-card-content>
+  </md-card>
 
-  </div>
+</div>
 
-  <instagram-feed *ngFor="let feed of feeds" [feed]="feed"></instagram-feed>
+<!--<md-tab-group>
+  <md-tab *ngFor="let feed of feeds; let i = index" [label]="i+1">-->
+<md-card>
+  <!--<md-card-title>Questions</md-card-title>-->
+  <md-card-content class="flex-container"
+                   fxLayoutWrap="wrap"
+                   fxLayout="row"
+                   fxLayoutAlign="center" fxLayoutAlign.xs="start">
 
-<style>
-  .trailName {
-    padding-left: 20px;
-    margin-bottom: 5px !important;
-  }
-  .trailDetail {
-    padding-left: 20px;
-    margin-top:5px !important;
-  }
-</style>
+    <instagram-feed *ngFor="let feed of feeds; let i = index" [feed]="feed"></instagram-feed>
+
+  </md-card-content>
+  </md-card>
+  <!--</md-tab>
+    </md-tab-group>-->
+
+
+
+    <style>
+      .trailName {
+        padding-left: 20px;
+        margin-bottom: 5px !important;
+      }
+
+      .trailDetail {
+        padding-left: 20px;
+        margin-top: 5px !important;
+      }
+    </style>

@@ -1,9 +1,20 @@
 ﻿
-<md-card class="card-feed-entry">
+<md-card class="instagram-feed-card">
   <md-card-title>{{feed.title}}</md-card-title>
-  <md-card-subtitle>{{feed.pubDate | date:'dd-MM-yyyy'}}</md-card-subtitle>
+  <md-card-subtitle>{{feed.pubDate | date:'dd-MM-yyyy'}} - Instagram Feed</md-card-subtitle>
+  <img [src]="feed.image" />
   <md-card-content>
-    <img [src]="feed.image" />
-    <p>{{feed.content}}</p>
+    <div layout="row" flex>
+      <div class="parent" layout="column" flex>
+          {{feed.content}}
+      </div>
+    </div>
   </md-card-content>
 </md-card>
+
+
+<style>
+  .instagram-feed-card {
+    max-width:500px;
+  }
+</style>
