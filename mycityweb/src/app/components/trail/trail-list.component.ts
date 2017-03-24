@@ -85,11 +85,13 @@ export class TrailListComponent {
     }
 
     titleFilterChange() {
-        //alert(this.titleFilter + " " + this.regionFilter);
+        let titleFilter = this.titleFilter;
+        this.trails = this.trails.filter(item => item.name.indexOf(titleFilter) !== -1);
     }
 
     regionFilterChange() {
-        //alert(this.titleFilter + " " + this.regionFilter);
+        let regionFilter = this.regionFilter;
+        this.trails = this.trails.filter(item => item.region.indexOf(regionFilter) !== -1);
     }
 
 }
