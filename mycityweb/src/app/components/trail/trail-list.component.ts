@@ -12,7 +12,7 @@ import { InstagramFeedService } from '../../services/instagramfeed.service';
 })
 export class TrailListComponent {
     public trails: Trail[] = [];
-    public unFilteredTrails: Trail[] = [];
+    public unfilteredTrails : Trail[] = [];
     ratingClicked: number;
     itemIdRatingClicked: number;
     defualtFilter: string;
@@ -33,8 +33,8 @@ export class TrailListComponent {
         let $self = this;
         this.trailsService.getTrails()
             .then(function (trails) {
-                //$self.unFilteredTrails
                 $self.trails = trails;
+                $self.unfilteredTrails = trails.slice(0, trails.length);
                 $self.sortChange("Region");
                 for (let trail of trails) {
                     $self.setThumbnailPicture(trail);
@@ -86,12 +86,12 @@ export class TrailListComponent {
 
     titleFilterChange() {
         let titleFilter = this.titleFilter;
-        this.trails = this.trails.filter(item => item.name.indexOf(titleFilter) !== -1);
+        this.trails = this.unfilteredTrails.filter(item => item.name.toLowerCase().indexOf(titleFilter.toLowerCase()) !== -1);
     }
 
     regionFilterChange() {
         let regionFilter = this.regionFilter;
-        this.trails = this.trails.filter(item => item.region.indexOf(regionFilter) !== -1);
+        this.trails = this.unfilteredTrails.filter(item => item.region.toLowerCase().indexOf(regionFilter.toLowerCase()) !== -1);
     }
 
 }
