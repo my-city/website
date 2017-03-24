@@ -56,7 +56,8 @@ export class TrailListComponent {
         this.router.navigate(link);
     }
 
-    setThumbnailPicture(trail: Trail) : void {
+    setThumbnailPicture(trail: Trail): void {
+        trail.thumbnail = '/assets/placeholder.png';
         var self = this;
         var imgSource;
         this.instagramFeedService.getPictures(trail.hashtags)
