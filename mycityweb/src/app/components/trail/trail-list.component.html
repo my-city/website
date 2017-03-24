@@ -17,12 +17,12 @@
                 <b>Sort By:</b>
               </div>
               <div class="parent">
-                <md-radio-group>
-                  <md-radio-button value="1" selected = "true">Name</md-radio-button>
-                  <md-radio-button value="2">Region</md-radio-button>
-                  <md-radio-button value="3">Time</md-radio-button>
-                  <md-radio-button value="4">Difficulty</md-radio-button>
-                  <md-radio-button value="5">Distance</md-radio-button>
+                <md-radio-group [(value)]="defualtFilter" (change) ="sortChange($event.value)">
+                  <md-radio-button value="Name">Name</md-radio-button>
+                  <md-radio-button value="Region">Region</md-radio-button>
+                  <md-radio-button value="Time">Time</md-radio-button>
+                  <md-radio-button value="Difficulty">Difficulty</md-radio-button>
+                  <md-radio-button value="RoundTrip">Round-Trip</md-radio-button>
                 </md-radio-group>
               </div>
               <div class="parent">
@@ -30,12 +30,12 @@
               </div>
               <div class="parent">
                 <md-input-container>
-                  <input mdInput placeholder="Title" value="" type="text">
+                  <input mdInput placeholder="Title" [(ngModel)]="titleFilter" type="text" (keyup) ="titleFilterChange($event.value)">
                 </md-input-container>
               </div>
               <div class="parent">
                 <md-input-container>
-                  <input mdInput placeholder="Region" value="" type="text">
+                  <input mdInput placeholder="Region" [(ngModel)]="regionFilter" type="text" (keyup) ="regionFilterChange($event.value)">
                 </md-input-container>
               </div>
         </div>

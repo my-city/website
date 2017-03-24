@@ -12,12 +12,19 @@ import { InstagramFeedService } from '../../services/instagramfeed.service';
 })
 export class TrailListComponent {
     public trails: Trail[] = [];
+    public unFilteredTrails: Trail[] = [];
     ratingClicked: number;
     itemIdRatingClicked: number;
+    defualtFilter: string;
+    titleFilter: string;
+    regionFilter:string
 
     constructor(private trailsService: TrailsService,
                 private router: Router,
                 private instagramFeedService: InstagramFeedService, ) {
+        this.defualtFilter = "Region";
+        this.regionFilter = "";
+        this.titleFilter = "";
     }  
 
     
@@ -26,7 +33,9 @@ export class TrailListComponent {
         let $self = this;
         this.trailsService.getTrails()
             .then(function (trails) {
+                //$self.unFilteredTrails
                 $self.trails = trails;
+                $self.sortChange("Region");
                 for (let trail of trails) {
                     $self.setThumbnailPicture(trail);
                 }
@@ -57,5 +66,29 @@ export class TrailListComponent {
              });
     }
 
+    sortChange(value) {
+        if(value == 'Name')
+            this.trails.sort(function (a, b) { return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0); });
+
+        else if (value == 'RoundTrip')
+            this.trails.sort(function (a, b) { return (a.distance > b.distance) ? 1 : ((b.distance > a.distance) ? -1 : 0); });
+
+        else if (value == 'Time')
+            this.trails.sort(function (a, b) { return (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0); });
+
+        else if (value == 'Difficulty')
+            this.trails.sort(function (a, b) { return (a.difficulty > b.difficulty) ? 1 : ((b.difficulty > a.difficulty) ? -1 : 0); });
+
+        else if (value == 'Region')
+            this.trails.sort(function (a, b) { return (a.difficulty > b.difficulty) ? 1 : ((b.difficulty > a.difficulty) ? -1 : 0); });
+    }
+
+    titleFilterChange() {
+        //alert(this.titleFilter + " " + this.regionFilter);
+    }
+
+    regionFilterChange() {
+        //alert(this.titleFilter + " " + this.regionFilter);
+    }
 
 }
