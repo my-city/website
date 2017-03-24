@@ -23,6 +23,7 @@ import { TrailListComponent } from './components/trail/trail-list.component';
 import { NewTrailComponent } from './components/trail/new-trail.component';
 import { TrailDetailComponent } from './components/trail/trail-detail.component';
 import { InstagramFeedComponent } from './components/trail/instagram-feed.component';
+import { InstagramFeedDialog } from './components/trail/instagram-feed.component';
 
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FooterComponent } from './components/layout/footer.component';
@@ -46,12 +47,16 @@ import { InstagramFeedService } from './services/instagramfeed.service';
       TrailDetailComponent,
       NewTrailComponent,
       InstagramFeedComponent,
+      InstagramFeedDialog,
       SignInComponent,
       HeaderComponent,
       FooterComponent,
       RatingComponent,
       MapComponent
-  ],
+    ],
+  entryComponents: [
+      InstagramFeedDialog
+    ],
   imports: [
       BrowserModule,
       FormsModule,

@@ -1,0 +1,25 @@
+﻿
+<md-card class="instagram-feed-card-dialog" (click) ="showPicture(feed)">
+  <!--<md-card-title>{{feed.title}}</md-card-title>-->
+  <md-card-subtitle>{{feed.pubDate | date:'dd-MM-yyyy'}} - Instagram Feed</md-card-subtitle>
+  <img [src]="feed.image" />
+  <md-card-content>
+    <div layout="row" flex>
+      <div class="parent" layout="column" flex>
+          {{feed.content}}
+      </div>
+    </div>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>
+      Close
+      <md-icon>close</md-icon>
+    </button>
+  </md-card-actions>
+</md-card>
+
+<style>
+  .instagram-feed-card-dialog {
+    max-width:800px;
+  }
+</style>
