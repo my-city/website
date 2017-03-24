@@ -49,14 +49,14 @@
                      fxLayout="row"
                      fxLayoutAlign="left" fxLayoutAlign.xs="start">
 
-      <md-card *ngFor="let trail of trails" class="city-card">
+      <md-card *ngFor="let trail of trails" class="trail-card">
         <md-card-header>
           <md-card-title><a href="trail/{{trail.id}}/{{trail.name}}" class="trailName">{{trail.name}}</a></md-card-title>
           <md-card-subtitle>
           {{trail.region}}
           </md-card-subtitle>
         </md-card-header>
-        <img md-card-image src="{{trail.image}}" class="trailPicture">
+        <img md-card-image src="{{trail.thumbnail}}" class="trailPicture">
         <md-card-content>
           <div layout="row" flex>
                 <app-rating [rating]='trail.rating' [itemId]='trail.id' (ratingClick)='ratingComponetClick($event)'></app-rating>
@@ -100,22 +100,17 @@
 
 
 <style>
+  .trail-card {
+    max-width:400px;
+  }
   .mat-grid-tile .mat-grid-tile-header {
     background-color: #9FA8DA;
-  }
-
-  .city-card-filter {
-    width:100%;
   }
 
   .trailName {
     text-decoration: none;
     color: #3f51b5;
     font-weight:600;
-  }
-
-  .trailPicture {
-    width:100%;
   }
 
   .trailDetails {

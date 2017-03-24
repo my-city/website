@@ -13,6 +13,7 @@
     camping: boolean;
     dogFriendly: boolean;
     publicTransit: boolean;
+    thumbnail: string;
     mapImages: {
         path: string,
         title: string

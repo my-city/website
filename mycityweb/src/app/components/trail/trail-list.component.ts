@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TrailsService } from '../../services/trails.service';
 import { Trail } from '../../models/trail';
 import { RatingComponent } from '../rating/rating.component';
+import { InstagramFeedService } from '../../services/instagramfeed.service';
 
 @Component({
     selector: 'trail-list',
@@ -14,14 +15,22 @@ export class TrailListComponent {
     ratingClicked: number;
     itemIdRatingClicked: number;
 
-    constructor(private trailsService: TrailsService, private router: Router) { }  
+    constructor(private trailsService: TrailsService,
+                private router: Router,
+                private instagramFeedService: InstagramFeedService, ) {
+    }  
 
     
 
     ngOnInit(): void {
-        
+        let $self = this;
         this.trailsService.getTrails()
-            .then(trails => this.trails = trails);
+            .then(function (trails) {
+                $self.trails = trails;
+                for (let trail of trails) {
+                    $self.setThumbnailPicture(trail);
+                }
+            });
     }
 
     ratingComponetClick(clickObj: any): void {
@@ -36,6 +45,16 @@ export class TrailListComponent {
     newTrail(): void {
         let link = ['/trail/new'];
         this.router.navigate(link);
+    }
+
+    setThumbnailPicture(trail: Trail) : void {
+        var self = this;
+        var imgSource;
+        this.instagramFeedService.getPictures(trail.hashtags)
+            .then(function (feeds) {
+                imgSource = (new DOMParser().parseFromString(feeds[0].content, "text/html")).getElementsByTagName('img')[0].src;
+                trail.thumbnail = imgSource;
+             });
     }
 
 
