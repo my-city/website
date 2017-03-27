@@ -68,7 +68,7 @@ import { InstagramFeedService } from './services/instagramfeed.service';
       CoreModule,
       FlexLayoutModule.forRoot(),
       AgmCoreModule.forRoot({
-          apiKey: 'AIzaSyDyw_P5VCx-UEnqS8IR2zuQMDuDtA3d3Gg'
+          apiKey: 'YOUR_KEY'
       })
   ],
   providers: [
