@@ -34,7 +34,6 @@ import { MapComponent } from './components/trail/map.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
 import { TrailsService } from './services/trails.service';
-import { UsersService } from './services/users.service';
 import { InstagramFeedService } from './services/instagramfeed.service';
 
 @NgModule({
@@ -75,8 +74,7 @@ import { InstagramFeedService } from './services/instagramfeed.service';
       CitiesService,
       TrailsService,
       Title,
-      InstagramFeedService,
-      UsersService
+      InstagramFeedService
   ],
   bootstrap: [AppComponent]
 })

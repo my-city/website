@@ -18,7 +18,9 @@
         title: string
     }[];
     address: string;
-    lang: number;
+    lat: number;
     alt: number;
+    hashtags: string;
+    thumbnail: string;
     approvers: string[]; // email address of people who approved
 }

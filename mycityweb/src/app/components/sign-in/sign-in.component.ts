@@ -1,5 +1,4 @@
 ﻿import { Component } from '@angular/core';
-import { UsersService } from '../../services/users.service';
 import { AngularFire, AuthProviders } from 'angularfire2';
 
 @Component({
@@ -11,8 +10,7 @@ export class SignInComponent {
     user = {};
 
     constructor (
-        public af: AngularFire,
-        private usersService: UsersService) {
+        public af: AngularFire) {
 
         this.af.auth.subscribe(user => {
             if (user) {

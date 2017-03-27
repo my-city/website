@@ -72,7 +72,7 @@ export class TrailListComponent {
             this.trails.sort(function (a, b) { return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0); });
 
         else if (value == 'RoundTrip')
-            this.trails.sort(function (a, b) { return (a.distance > b.distance) ? 1 : ((b.distance > a.distance) ? -1 : 0); });
+            this.trails.sort(function (a, b) { return (a.roundTrip > b.roundTrip) ? 1 : ((b.roundTrip > a.roundTrip) ? -1 : 0); });
 
         else if (value == 'Time')
             this.trails.sort(function (a, b) { return (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0); });
@@ -81,7 +81,7 @@ export class TrailListComponent {
             this.trails.sort(function (a, b) { return (a.difficulty > b.difficulty) ? 1 : ((b.difficulty > a.difficulty) ? -1 : 0); });
 
         else if (value == 'Region')
-            this.trails.sort(function (a, b) { return (a.difficulty > b.difficulty) ? 1 : ((b.difficulty > a.difficulty) ? -1 : 0); });
+            this.trails.sort(function (a, b) { return (a.region > b.region) ? 1 : ((b.region > a.region) ? -1 : 0); });
     }
 
     titleFilterChange() {
