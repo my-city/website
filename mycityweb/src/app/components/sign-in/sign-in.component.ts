@@ -1,6 +1,5 @@
 ﻿import { Component } from '@angular/core';
 import { UsersService } from '../../services/users.service';
-import { User } from '../../models/user';
 import { AngularFire, AuthProviders } from 'angularfire2';
 
 @Component({
@@ -19,8 +18,6 @@ export class SignInComponent {
             if (user) {
                 // user logged in
                 this.user = user;
-                usersService.saveUser(user);
-
             }
             else {
                 // user not logged in
