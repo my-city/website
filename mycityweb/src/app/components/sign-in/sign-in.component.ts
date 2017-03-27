@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
-import { CitiesService } from '../../services/cities.service';
-import { City } from '../../models/city';
+import { UsersService } from '../../services/users.service';
+import { User } from '../../models/user';
 import { AngularFire, AuthProviders } from 'angularfire2';
 
 @Component({
@@ -11,12 +11,16 @@ export class SignInComponent {
 
     user = {};
 
-    constructor(public af: AngularFire) {
+    constructor (
+        public af: AngularFire,
+        private usersService: UsersService) {
 
         this.af.auth.subscribe(user => {
             if (user) {
                 // user logged in
                 this.user = user;
+                usersService.saveUser(user);
+
             }
             else {
                 // user not logged in

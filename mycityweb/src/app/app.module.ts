@@ -34,6 +34,7 @@ import { MapComponent } from './components/trail/map.component';
 import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
 import { TrailsService } from './services/trails.service';
+import { UsersService } from './services/users.service';
 import { InstagramFeedService } from './services/instagramfeed.service';
 
 @NgModule({
@@ -67,14 +68,15 @@ import { InstagramFeedService } from './services/instagramfeed.service';
       CoreModule,
       FlexLayoutModule.forRoot(),
       AgmCoreModule.forRoot({
-          apiKey: 'YOUR_KEY'
+          apiKey: 'AIzaSyDyw_P5VCx-UEnqS8IR2zuQMDuDtA3d3Gg'
       })
   ],
   providers: [
       CitiesService,
       TrailsService,
       Title,
-      InstagramFeedService
+      InstagramFeedService,
+      UsersService
   ],
   bootstrap: [AppComponent]
 })
