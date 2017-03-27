@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { City } from '../../models/city';
 import { Trail } from '../../models/trail';
 import { CitiesService } from '../../services/cities.service';
+import { TrailsService } from '../../services/trails.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class NewTrailComponent implements OnInit {
     trail: Trail;
     constructor(
         private citiesService: CitiesService,
+        private trailsService: TrailsService,
         private route: ActivatedRoute,
         private location: Location,
         private titleService: Title
@@ -35,7 +37,8 @@ export class NewTrailComponent implements OnInit {
     }
 
     save(trail): void {
-        alert(this.trail.name);
+        this.trailsService.saveTrail(trail);
+        alert('Done!');
     }
 
 }

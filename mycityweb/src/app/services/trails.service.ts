@@ -29,6 +29,14 @@ export class TrailsService {
       .catch(this.handleError);
   }
 
+  saveTrail(trail: Trail): Promise<Trail>  {
+      const url = `${this.trailsUrl}`;
+      return this.http.post(url, JSON.stringify(trail))
+          .toPromise()
+          .then(response => response.json() as Trail)
+          .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
