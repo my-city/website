@@ -31,7 +31,7 @@ export class TrailsService {
 
   saveTrail(trail: Trail): Promise<Trail>  {
       const url = `${this.trailsUrl}`;
-      return this.http.post(url, JSON.stringify(trail))
+      return this.http.post(url, JSON.stringify(trail), {headers: this.headers})
           .toPromise()
           .then(response => response.json() as Trail)
           .catch(this.handleError);
