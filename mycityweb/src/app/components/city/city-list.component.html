@@ -1,57 +1,51 @@
-﻿<!--<div [ngBusy]="busy"></div>-->
+﻿<div *ngIf="cities; else loading">
 
-<!--<md-grid-list cols="6" rowHeight="100px">
-  <md-grid-tile *ngFor="let city of cities"
-                [colspan]="city.cols"
-                [rowspan]="city.rows"
-                (click)="gotoDetail(city)">-->
+  <md-card>
 
-<md-card>
-  <!--<md-card-title>Questions</md-card-title>-->
-  <md-card-content class="flex-container"
-                   fxLayoutWrap="wrap"
-                   fxLayout="row"
-                   fxLayoutAlign="center" fxLayoutAlign.xs="start">
+    <md-card-content class="flex-container"
+                     fxLayoutWrap="wrap"
+                     fxLayout="row"
+                     fxLayoutAlign="center" fxLayoutAlign.xs="start">
 
-    <md-card *ngFor="let city of cities" class="city-card">
-      <md-card-header>
-        <div md-card-avatar class="example-header-image"></div>
-        <md-card-title><a href="area/{{city.id}}/{{city.title}}" class="cityName">{{city.country}}, {{city.state}}</a></md-card-title>
-        <md-card-subtitle>{{city.title}}</md-card-subtitle>
-      </md-card-header>
-      <img md-card-image src="{{city.image}}">
-      <md-card-content>
-        <p>
-          {{city.description}}
-        </p>
-      </md-card-content>
-      <md-card-actions>
-        <button md-button>
-          <md-icon>thumbs-up</md-icon>
-        </button>
-        <button md-button>
-          <md-icon>twitter</md-icon>
-        </button>
-      </md-card-actions>
-    </md-card>
+      <md-card *ngFor="let city of cities" class="city-card">
+        <md-card-header>
+          <div md-card-avatar class="example-header-image"></div>
+          <md-card-title><a href="area/{{city.id}}/{{city.title}}" class="cityName">{{city.country}}, {{city.state}}</a></md-card-title>
+          <md-card-subtitle>{{city.title}}</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="{{city.image}}">
+        <md-card-content>
+          <p>
+            {{city.description}}
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-button>
+            <md-icon>thumbs-up</md-icon>
+          </button>
+          <button md-button>
+            <md-icon>twitter</md-icon>
+          </button>
+        </md-card-actions>
+      </md-card>
 
-  </md-card-content>
-</md-card>
-<!--</md-grid-tile>
-</md-grid-list>-->
+   
+
+    </md-card-content>
+  </md-card>
+
+</div>
+
+<ng-template #loading>Loading...</ng-template>
 
 <style>
-  /* You can add global styles to this file, and also import other style files */
-  .city-card {
-    max-width: 500px;
-  }
+    .city-card {
+      max-width: 500px;
+    }
 
-  .cityName {
-    text-decoration: none !important;
-    font-weight: 600;
-    color: #3f51b5;
-  }
-  /*.city-card:hover {
-    background-color: #E8EAF6;
-  }*/
+    .cityName {
+      text-decoration: none !important;
+      font-weight: 600;
+      color: #3f51b5;
+    }
 </style>

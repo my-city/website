@@ -1,103 +1,103 @@
-﻿<div *ngIf="trails">
+﻿<div *ngIf="trails; else loading">
 
-  <md-toolbar color="">
-    <button md-button (click)="newTrail()">
+    <md-toolbar color="">
+      <button md-button (click)="newTrail()">
         <md-icon>add</md-icon>
         New Trail
-    </button>
-  </md-toolbar>
+      </button>
+    </md-toolbar>
 
-  <md-card class="city-card-filter">
-    <md-card-content>
-      <div class="flex-container"
-            fxLayoutWrap="wrap"
-            fxLayout="row"
-            fxLayoutAlign="left" fxLayoutAlign.xs="start">
-              <div class="parent">
-                <b>Sort By:</b>
-              </div>
-              <div class="parent">
-                <md-radio-group [(value)]="defualtFilter" (change) ="sortChange($event.value)">
-                  <md-radio-button value="Name">Name</md-radio-button>
-                  <md-radio-button value="Region">Region</md-radio-button>
-                  <md-radio-button value="Time">Time</md-radio-button>
-                  <md-radio-button value="Difficulty">Difficulty</md-radio-button>
-                  <md-radio-button value="RoundTrip">Round-Trip</md-radio-button>
-                </md-radio-group>
-              </div>
-              <div class="parent">
-                <b>Filter By:</b>
-              </div>
-              <div class="parent">
-                <md-input-container>
-                  <input mdInput placeholder="Title" [(ngModel)]="titleFilter" type="text" (keyup) ="titleFilterChange($event.value)">
-                </md-input-container>
-              </div>
-              <div class="parent">
-                <md-input-container>
-                  <input mdInput placeholder="Region" [(ngModel)]="regionFilter" type="text" (keyup) ="regionFilterChange($event.value)">
-                </md-input-container>
-              </div>
+    <md-card class="city-card-filter">
+      <md-card-content>
+        <div class="flex-container"
+             fxLayoutWrap="wrap"
+             fxLayout="row"
+             fxLayoutAlign="left" fxLayoutAlign.xs="start">
+          <div class="parent">
+            <b>Sort By:</b>
+          </div>
+          <div class="parent">
+            <md-radio-group [(value)]="defualtFilter" (change)="sortChange($event.value)">
+              <md-radio-button value="Name">Name</md-radio-button>
+              <md-radio-button value="Region">Region</md-radio-button>
+              <md-radio-button value="Time">Time</md-radio-button>
+              <md-radio-button value="Difficulty">Difficulty</md-radio-button>
+              <md-radio-button value="RoundTrip">Round-Trip</md-radio-button>
+            </md-radio-group>
+          </div>
+          <div class="parent">
+            <b>Filter By:</b>
+          </div>
+          <div class="parent">
+            <md-input-container>
+              <input mdInput placeholder="Title" [(ngModel)]="titleFilter" type="text" (keyup)="titleFilterChange($event.value)">
+            </md-input-container>
+          </div>
+          <div class="parent">
+            <md-input-container>
+              <input mdInput placeholder="Region" [(ngModel)]="regionFilter" type="text" (keyup)="regionFilterChange($event.value)">
+            </md-input-container>
+          </div>
         </div>
-    </md-card-content>
-  </md-card>
+      </md-card-content>
+    </md-card>
 
-  <md-card>
-    <md-card-title></md-card-title>
-    <md-card-content class="flex-container"
-                     fxLayoutWrap="wrap"
-                     fxLayout="row"
-                     fxLayoutAlign="left" fxLayoutAlign.xs="start">
+    <md-card>
+      <md-card-title></md-card-title>
+      <md-card-content class="flex-container"
+                       fxLayoutWrap="wrap"
+                       fxLayout="row"
+                       fxLayoutAlign="left" fxLayoutAlign.xs="start">
 
-      <md-card *ngFor="let trail of trails" class="trail-card">
-        <md-card-header>
-          <md-card-title><a href="trail/{{trail.id}}/{{trail.name}}" class="trailName">{{trail.name}}</a></md-card-title>
-          <md-card-subtitle>
-          {{trail.region}}
-          </md-card-subtitle>
-        </md-card-header>
-        <img md-card-image src="{{trail.thumbnail}}" class="trailPicture">
-        <md-card-content>
-          <div layout="row" flex>
-                <app-rating [rating]='trail.rating' [itemId]='trail.id' (ratingClick)='ratingComponetClick($event)'></app-rating>
-          </div>
-          <div layout="row" flex>
-                {{trail.difficulty}} trail. 
-          </div>
-          <div layout="row" flex>
+        <md-card *ngFor="let trail of trails" class="trail-card">
+          <md-card-header>
+            <md-card-title><a href="trail/{{trail.id}}/{{trail.name}}" class="trailName">{{trail.name}}</a></md-card-title>
+            <md-card-subtitle>
+              {{trail.region}}
+            </md-card-subtitle>
+          </md-card-header>
+          <img md-card-image src="{{trail.thumbnail}}" class="trailPicture">
+          <md-card-content>
+            <div layout="row" flex>
+              <app-rating [rating]='trail.rating' [itemId]='trail.id' (ratingClick)='ratingComponetClick($event)'></app-rating>
+            </div>
+            <div layout="row" flex>
+              {{trail.difficulty}} trail.
+            </div>
+            <div layout="row" flex>
               About&nbsp;<u>{{trail.distance}} k.m</u>&nbsp;long.
-          </div>
-          <div layout="row" flex>
+            </div>
+            <div layout="row" flex>
               Takes&nbsp;<u>{{trail.time}} hours</u>&nbsp;on average.
-          </div>
-        </md-card-content>
-        <md-card-actions>
-          <button md-icon-button [mdMenuTriggerFor]="menu">
-            <md-icon>more_vert</md-icon>
-          </button>
-          <md-menu #menu="mdMenu">
-            <button md-menu-item>
-              <md-icon>edit</md-icon>
-              <span>Edit</span>
+            </div>
+          </md-card-content>
+          <md-card-actions>
+            <button md-icon-button [mdMenuTriggerFor]="menu">
+              <md-icon>more_vert</md-icon>
             </button>
-            <button md-menu-item>
-              <md-icon>dialpad</md-icon>
-              <span>Share with Twitter</span>
-            </button>
-            <button md-menu-item>
-              <md-icon>voicemail</md-icon>
-              <span>Share with Facebook</span>
-            </button>
-          </md-menu>
+            <md-menu #menu="mdMenu">
+              <button md-menu-item>
+                <md-icon>edit</md-icon>
+                <span>Edit</span>
+              </button>
+              <button md-menu-item>
+                <md-icon>dialpad</md-icon>
+                <span>Share with Twitter</span>
+              </button>
+              <button md-menu-item>
+                <md-icon>voicemail</md-icon>
+                <span>Share with Facebook</span>
+              </button>
+            </md-menu>
 
-        </md-card-actions>
-      </md-card>
+          </md-card-actions>
+        </md-card>
 
-    </md-card-content>
-  </md-card>
+      </md-card-content>
+    </md-card>
 
 </div>
-
+<ng-template #loading>Loading...</ng-template>
 
 <style>
   .trail-card {
