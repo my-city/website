@@ -2,6 +2,8 @@
 
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
@@ -38,7 +40,7 @@ import { InstagramFeedService } from './services/instagramfeed.service';
 
 @NgModule({
   declarations: [
-      AppComponent, 
+      AppComponent,
       TopMenuComponent,
       DashboardComponent,
       CityListComponent,
@@ -59,6 +61,7 @@ import { InstagramFeedService } from './services/instagramfeed.service';
     ],
   imports: [
       BrowserModule,
+      BrowserAnimationsModule,
       FormsModule,
       HttpModule,
       MaterialModule.forRoot(),
