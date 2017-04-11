@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { AngularFire, AuthProviders } from 'angularfire2';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'sign-in',
@@ -8,31 +8,15 @@ import { AngularFire, AuthProviders } from 'angularfire2';
 export class SignInComponent {
 
     user = {};
-
-    constructor (
-        public af: AngularFire) {
-
-        this.af.auth.subscribe(user => {
-            if (user) {
-                // user logged in
-                this.user = user;
-            }
-            else {
-                // user not logged in
-                this.user = {};
-            }
-        });
-    }
+    constructor(private authService: AuthService) {  }
 
     login() {
-        this.af.auth.login({
-            provider: AuthProviders.Google
-        });
+        this.authService.login();
+        this.user = this.authService.user;
     }
 
     logout() {
-        this.af.auth.logout();
+        this.authService.logout();
     }
-
 
 }

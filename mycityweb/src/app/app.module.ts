@@ -37,6 +37,9 @@ import { AppComponent } from './app.component';
 import { CitiesService } from './services/cities.service';
 import { TrailsService } from './services/trails.service';
 import { InstagramFeedService } from './services/instagramfeed.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +57,8 @@ import { InstagramFeedService } from './services/instagramfeed.service';
       HeaderComponent,
       FooterComponent,
       RatingComponent,
-      MapComponent
+      MapComponent,
+
     ],
   entryComponents: [
       InstagramFeedDialog
@@ -77,7 +81,9 @@ import { InstagramFeedService } from './services/instagramfeed.service';
       CitiesService,
       TrailsService,
       Title,
-      InstagramFeedService
+      InstagramFeedService,
+      AuthService,
+      AuthGuard
   ],
   bootstrap: [AppComponent]
 })
