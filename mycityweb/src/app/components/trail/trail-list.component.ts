@@ -4,6 +4,7 @@ import { TrailsService } from '../../services/trails.service';
 import { Trail } from '../../models/trail';
 import { RatingComponent } from '../rating/rating.component';
 import { InstagramFeedService } from '../../services/instagramfeed.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'trail-list',
@@ -21,12 +22,12 @@ export class TrailListComponent {
 
     constructor(private trailsService: TrailsService,
                 private router: Router,
-                private instagramFeedService: InstagramFeedService, ) {
+                private instagramFeedService: InstagramFeedService,
+                private authService: AuthService) {
         this.defualtFilter = "Region";
         this.regionFilter = "";
         this.titleFilter = "";
     }  
-
     
 
     ngOnInit(): void {
@@ -52,6 +53,12 @@ export class TrailListComponent {
     }
 
     newTrail(): void {
+
+        if (!this.authService.isLoggedIn) {
+            this.authService.login();
+            return;
+        }
+
         let link = ['/trail/new'];
         this.router.navigate(link);
     }
